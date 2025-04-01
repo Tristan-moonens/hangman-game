@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap');
+
+body {
+    font-family: "Baloo Paaji 2", sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 0.625rem;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("../assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+button {
+    background-color: hsl(282, 62%, 31%);
+    border-radius: 1.25rem;
+    border: 0;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    padding: 0.625rem 1.5625rem;
+}
+button:active {
+    opacity: 0.8;
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal.open {
+    opacity: 1;
+    z-index: 999;
+}
+.modal-inner {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 0.3125rem;
+    padding: 0.9375rem 1.5625rem;
+    text-align: center;
+    width: 23.75rem;
+}
+.modal-inner h1 {
+    margin: 0;
+}
+.modal-inner p {
+    line-height: 1.5rem;
+    margin: 0.625rem 0;
+}
+.container {
+    width: 53.125rem;
+    background: hsl(0, 0%, 100%);
+    display: flex;
+    gap: 4.375rem;
+    align-items: flex-end;
+    padding: 3.75rem 2.5rem;
+    border-radius: 6.25rem;
+}
+.hangman-box img {
+    max-width: 16.875rem;
+}
+.hangman-box h1 {
+    font-size: 1.45rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.word-display {
+   display: flex;
+   gap: 0.625rem;
+   list-style: none;
+   align-items: center;
+   justify-content: center;
+}
+.word-display .letter {
+    width: 1.75rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    border-bottom: 0.1875rem solid hsl(0, 0%, 0%);
+}
+.word-display .letter.guessed {
+    border-color: transparent;
+    margin: -2.5rem 0 2.1875rem;
+}
+.game-box h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.9375rem;
+}
+.game-box h2 b {
+    font-weight: 600;
+}
+.game-box .guesses-text b {
+    color: hsl(0, 100%, 50%);
+}
+.game-box .keyboard {
+    display: flex;
+    gap: 0.3125rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+:where(.game-modal, .keyboard) button {
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: hsl(282, 62%, 31%);
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+}
+.keyboard button {
+    padding: 0.4375rem;   
+    width: calc(100% / 9 - 0.3125rem);
+}
+.keyboard button[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+}
+:where(.game-modal, .keyboard) button:hover {
+    background: hsl(290, 27%, 50%);
+}
+.game-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 0 0.625rem;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+    transition: opacity 0.4s ease;
+}
+.game-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.game-modal .content {
+    background: hsl(0, 0%, 100%);
+    max-width: 26.25rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 0.625rem;
+    padding: 1.875rem;
+}
+.game-modal img {
+    max-width: 8.125rem;
+    margin-bottom: 1.25rem;
+}
+.game-modal h2 {
+    font-size: 1.53rem;
+}
+.game-modal p {
+    font-size: 1.15rem;
+    margin: 0.9375rem 0 1.875rem;
+    font-weight: 500;
+}
+.game-modal p b {
+    color: hsl(290, 27%, 50%);
+    font-weight: 600;
+}
+.game-modal button {
+    padding: 0.75rem 1.4375rem;
+}
+
+@media (max-width: 48.875rem) {
+    .container {
+        flex-direction: column;
+        padding: 1.875rem 0.9375rem;
+        align-items: center;
+    }
+    .hangman-box img {
+        max-width: 12.5rem;
+    }
+    .hangman-box h1 {
+        display: none;
+    } 
+}
