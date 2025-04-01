@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/hangman.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+    <button id="openModal">View the Rules</button>
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+                <h1>Rules:</h1>
+                <p> 1: Guess the secret word by choosing letters.<br>
+                    2: Correct letters are filled in, wrong ones add to the hangman drawing.<br>
+                    3: Win by guessing the word before the drawing is complete.<br>
+                    4: You Lose if the full hangman is drawn.
+                </p>
+                <button id="closeModal">Close</button>
+        </div>
+    </div>
+    <div class="game-modal">
+        <div class="content">
+            <img src="assets/game over.gif" alt="game over">
+            <h1>Game Over!</h1>
+            <p>The correct word was: <b>school</b></p>
+            <button class="play-again">Play Again</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hangman-box">
+            <img src="assets/hangman-0.png" alt="hangman-img">
+            <h1>Galgje game</h1>
+        </div>
+        <div class="game-box">
+            <ul class="word-display"></ul>
+            <h2 class="guesses-text">
+                Incorrect guesses:
+                <b>0 / 6</b>
+            </h2>
+            <div class="keyboard"></div>
+        </div>
+    </div>
+    <script src="js/word-list.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
